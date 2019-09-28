@@ -24,17 +24,7 @@ class App extends Component {
       this.setState({
         users: users    // takes the original users aray and assigning it the new array value
       })
-  }
 
-  // we use the unique identifier id to identify the user we want to delete
-  // props will be at the first-component.js
-  deleteUser = (id) => {
-    let users = this.state.users.filter(user => {
-      return user.id !== id    // user.id is the id we are cycling through the array and id is the id we passed on to the function
-    })
-    this.setState({
-      users: users
-    })
   }
   
   render() {
@@ -42,10 +32,9 @@ class App extends Component {
       <div className="App">
         <h1>My First React App</h1>
         <p>Welcome,</p>
-        <User deleteUser = {this.deleteUser } users = { this.state.users } />
+        <User users = { this.state.users } />
         <AddUser addUser={ this.addUser } // passing this as prop
         />
-
       </div>
     ); 
   }

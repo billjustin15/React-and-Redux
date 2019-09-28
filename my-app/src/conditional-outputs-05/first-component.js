@@ -2,7 +2,7 @@
 import React from 'react'
 
 // const User = (props) => {   // to destructure this, use the one below
-const User = ({users, deleteUser}) => {
+const User = ({users}) => {
     // using a functional component we dont automatically gets the props passed on to it
     // what we need to do is to take those props in as a parameter and access the props
 
@@ -10,26 +10,34 @@ const User = ({users, deleteUser}) => {
         // const { users } = props     // this is a parameter we passed on to the function // no longer needed on destructure
         const userList = users.map(user => {
             // conditional statements 
-            if (user.age > 20) {
+            if (user.age > 25) {
                 return (
                     <div className="user-info" key={ user.id }>
                         <div>Name: { user.name } </div>
                         <div>Age: { user.age } </div>
                         <div>Email: { user.email } </div>
-                        <button onClick={ _ => deleteUser(user.id) }>Delete User</button>
                     </div>
-                ) // each time we output a user, we output a button for delete
-                    // and then we will need to get the id and pass it on to the delete function
-                    // <button onClick={ deleteUser(user.id) }>Delete User</button> will automatically fire the function every time
+                )
             }
             else {
                 return null
-            }  
+            }
+            
+        })
+        // another format for conditional statements (ternary operator)
+        const userList2 = users.map(user1 => {
+            return user1.age > 24 ? (
+                <div className="user-info" key={ user1.id }>
+                    <div>Name: { user1.name } </div>
+                    <div>Age: { user1.age } </div>
+                    <div>Email: { user1.email } </div>
+                </div>
+            ) : (null)
         })
 
         return (
             <div className="user-list">
-                { userList }
+                { userList2 }
             </div>
         )
 }
