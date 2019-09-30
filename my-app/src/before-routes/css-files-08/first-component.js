@@ -1,5 +1,7 @@
 // import React, { Component } from 'react'; // we will no longer need this component because we are no longer extending that class
 import React from 'react'
+import './app.css' // imports the css file in the current directory
+                   // this doesnt restricts css styles in this certain file, it will also be active for any other code or component in this page
 
 // const User = (props) => {   // to destructure this, use the one below
 const User = ({users, deleteUser}) => {
