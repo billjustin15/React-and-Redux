@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-// to use an image inside a component is to import the image
-import Pokeball from '../pokeball.jpg'
+
 
 class Home extends Component {
     
@@ -32,7 +31,6 @@ class Home extends Component {
             posts.map(post => {
                 return (
                     <div className="post card" key={post.id}>
-                        <img src={Pokeball} alt="A pokeball"/>
                         <div className="card-content">
                             <Link to={'/' + post.id}>
                                 <span className="card-title">{post.title}</span>
@@ -47,7 +45,7 @@ class Home extends Component {
         )
 
         return (
-            <div className="container home">
+            <div className="container">
                 <h4 className="center">Home</h4>
                 { postList }
             </div>
